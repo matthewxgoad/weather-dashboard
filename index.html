@@ -15,13 +15,13 @@
             <h1 class="text-light text-center">Weather Dashboard</h1>
         </div>
       </div>
-    <div class="container">
-        <div class="row py-3">
+    <div class="container cities">
+        <div class="row">
             <!-- SIDEBAR -->
-            <div class="col-3" id="sticky-sidebar">
-                <div class="sticky-top form-group">
-                    <label for="usr">Search for a City:</label>
-                    <input type="text" class="form-control" id="usr">
+            <div class="col-3">
+                <div class="input-group mb-3">
+                    <input type="text" placeholder="Search by city" class="form-control search-input" id="search-input" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    <button class="btn btn-outline-secondary input-group-append" type="button" id="search-btn"> > </button>
                   </div>
                   <ul class="list-group">
                     <li class="list-group-item">Saint Louis</li>
@@ -31,7 +31,7 @@
             </div>
             <!-- MAIN CONTENT -->
             <div class="col" id="main">
-                <p>Placeholder Main</p>
+                <p>It's gonna rain.</p>
             </div>
         </div>
     </div>
