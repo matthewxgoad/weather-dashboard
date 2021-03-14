@@ -15,7 +15,6 @@ let currentCityImgEl = document.getElementById('current-icon-container');
 
 let fiveDayCardsEl = document.getElementById('fiveDayCardsEl');
 
-let key = '94a285a187fcf3f23d86661eee8a123d';
 
 
 // FUNCTIONS //
@@ -28,6 +27,7 @@ function processSearchBtn() {
 }
 
 function findLatLon( city ) {
+    let key = '94a285a187fcf3f23d86661eee8a123d';
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key )
     .then(function(resp) { 
         // processSearchResponse
@@ -43,6 +43,7 @@ function findLatLon( city ) {
 }
 
 function getWeather( lat, lon ) {
+    let key = '94a285a187fcf3f23d86661eee8a123d';
     fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial' + '&appid=' + key )
     .then(function(resp) {
         return resp.json();

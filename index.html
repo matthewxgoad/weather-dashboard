@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- HEADER -->
-    <div class="jumbotron jumbotron-fluid bg-dark">
+    <div class="jumbotron jumbotron-fluid p-3 bg-dark">
         <div class="container">
             <h1 class="text-light text-center">Weather Dashboard</h1>
         </div>
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <!-- SIDEBAR -->
-            <div class="sidebar col-3 bg-success p-3" id="sidebarEl">
+            <div class="sidebar col-3 bg-success p-3 rounded-top" id="sidebarEl">
                 <div class="input-group mb-3">
                     <input type="text" placeholder="Search by city" class="form-control search-input" id="search-input" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     <button class="btn btn-outline-secondary input-group-append bg-light" type="button" id="search-btn"> > </button>
@@ -33,7 +33,7 @@
             <!-- MAIN CONTENT -->
             <div class="col" id="rightSideEl">
                 <!-- Current City / Current Weather Card -->
-                <div class="container mb-3 card-body bg-warning" id="currentCityEl">
+                <div class="container mb-3 card-body bg-warning rounded-top" id="currentCityEl">
                     <!-- Placeholder Current City Information -->
                             <span id="current-icon-container"></span>
                             <h1 class="display-4" id="currentCityNameEl"></h1>
@@ -43,13 +43,13 @@
                             <h4>Windspeed:</h4><span id="currentCityWindEl"></span>
                             <h4>UV Index:</h4><span id="currentCityUVEl"></span>
                 </div>
-                <!-- Container holding 5 day forecast text -->
-                <div class="container bg-danger p-3" id="fiveDayForecastHeader">
+                <!-- Container holding 5 day forecast heading -->
+                <div class="container bg-danger p-3 text-center rounded-top" id="fiveDayForecastHeader">
                     <h1 class="display-6">5 Day Forecast</h1>
                 </div>
-                <!-- Five Day Forecast Container -->
-                <div class="row five-day-cards" id="fiveDayCardsEl">
-                    <!-- <div class="col-2">
+                <!-- Five Day Forecast Cards Container -->
+                <div class="row five-day-cards mt-3" id="fiveDayCardsEl">
+                    <div class="col">
                         <div class="card bg-primary p-3">
                             <h5 class="text-light text-center">8/16/21</h5>
                             <img src="..." alt="Card Image Cap">
@@ -57,7 +57,7 @@
                             <h5 class="small text-light text-center">Hum. 50&percnt;</h5>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <div class="card bg-primary p-3">
                             <h5 class="text-light text-center">8/16/21</h5>
                             <img src="..." alt="Card Image Cap">
@@ -65,7 +65,7 @@
                             <h5 class="small text-light text-center">Hum. 50&percnt;</h5>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <div class="card bg-primary p-3">
                             <h5 class="text-light text-center">8/16/21</h5>
                             <img src="..." alt="Card Image Cap">
@@ -73,7 +73,7 @@
                             <h5 class="small text-light text-center">Hum. 50&percnt;</h5>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <div class="card bg-primary p-3">
                             <h5 class="text-light text-center">8/16/21</h5>
                             <img src="..." alt="Card Image Cap">
@@ -81,14 +81,14 @@
                             <h5 class="small text-light text-center">Hum. 50&percnt;</h5>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <div class="card bg-primary p-3">
                             <h5 class="text-light text-center">8/16/21</h5>
                             <img src="..." alt="Card Image Cap">
                             <h5 class="small text-light text-center">Temp. 84ºF</h5>
                             <h5 class="small text-light text-center">Hum. 50&percnt;</h5>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
