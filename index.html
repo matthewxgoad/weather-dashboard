@@ -18,10 +18,10 @@
     <div class="container">
         <div class="row">
             <!-- SIDEBAR -->
-            <div class="sidebar col-3" id="sidebarEl">
+            <div class="sidebar col-3 bg-success p-3" id="sidebarEl">
                 <div class="input-group mb-3">
                     <input type="text" placeholder="Search by city" class="form-control search-input" id="search-input" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                    <button class="btn btn-outline-secondary input-group-append" type="button" id="search-btn"> > </button>
+                    <button class="btn btn-outline-secondary input-group-append bg-light" type="button" id="search-btn"> > </button>
                   </div>
                   <ul class="list-group" id="citiesListEl">
                       <!-- Placeholder cities -->
@@ -33,16 +33,18 @@
             <!-- MAIN CONTENT -->
             <div class="col" id="rightSideEl">
                 <!-- Current City / Current Weather Card -->
-                <div class="container mb-3 card-body bg-light" id="currentCityEl">
+                <div class="container mb-3 card-body bg-warning" id="currentCityEl">
                     <!-- Placeholder Current City Information -->
-                    <h1 class="display-4" id="currentCityNameEL"></h3>
-                    <h4>Temperature:</h4><span id="currentCityTempEL"></span>
-                    <h4>Humidity:</h4><span id="currentCityHumEL"></span>
-                    <h4>Windspeed:</h4><span id= id="currentCityWindEL"></span>
-                    <h4>UV Index:</h4><span id="currentCityUVEL"></span>
+                            <span id="current-icon-container"></span>
+                            <h1 class="display-4" id="currentCityNameEl"></h1>
+                            <span id="currentDateEl"></span>
+                            <h4>Temperature:</h4><span id="currentCityTempEl"></span>
+                            <h4>Humidity:</h4><span id="currentCityHumEl"></span>
+                            <h4>Windspeed:</h4><span id="currentCityWindEl"></span>
+                            <h4>UV Index:</h4><span id="currentCityUVEl"></span>
                 </div>
                 <!-- Container holding 5 day forecast text -->
-                <div class="container" id="fiveDayForecastHeader">
+                <div class="container bg-danger p-3" id="fiveDayForecastHeader">
                     <h1 class="display-6">5 Day Forecast</h1>
                 </div>
                 <!-- Five Day Forecast Container -->
