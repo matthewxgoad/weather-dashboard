@@ -73,7 +73,7 @@ function insertWeatherData( weather ) {
     } else {
         currentCityUVEl.classList.add('uvOK')
     }
-    currentCityImgEl.innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.current.weather[0].icon + '@2x.png" alt="current weather">';
+    currentCityImgEl.innerHTML = '<img src="https://openweathermap.org/img/wn/' + weather.current.weather[0].icon + '@2x.png" alt="current weather">';
     // FIVE DAY DATE DATA 
     document.getElementById('dayOneDate').innerHTML = convertUnixDate(weather.daily[1].dt);
     document.getElementById('dayTwoDate').innerHTML = convertUnixDate(weather.daily[2].dt);
@@ -81,11 +81,11 @@ function insertWeatherData( weather ) {
     document.getElementById('dayFourDate').innerHTML = convertUnixDate(weather.daily[4].dt);
     document.getElementById('dayFiveDate').innerHTML = convertUnixDate(weather.daily[5].dt);
     // FIVE DAY IMAGE DATA 
-    document.getElementById('dayOneImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[1].weather[0].icon + '.png" alt="weather forecast">';
-    document.getElementById('dayTwoImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[2].weather[0].icon + '.png" alt="weather forecast">';
-    document.getElementById('dayThreeImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[3].weather[0].icon + '.png" alt="weather forecast">';
-    document.getElementById('dayFourImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[4].weather[0].icon + '.png" alt="weather forecast">';
-    document.getElementById('dayFiveImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[5].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayOneImg').innerHTML = '<img src="https://openweathermap.org/img/wn/' + weather.daily[1].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayTwoImg').innerHTML = '<img src="https://openweathermap.org/img/wn/' + weather.daily[2].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayThreeImg').innerHTML = '<img src="https://openweathermap.org/img/wn/' + weather.daily[3].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayFourImg').innerHTML = '<img src="https://openweathermap.org/img/wn/' + weather.daily[4].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayFiveImg').innerHTML = '<img src="https://openweathermap.org/img/wn/' + weather.daily[5].weather[0].icon + '.png" alt="weather forecast">';
     // FIVE DAY TEMP DATA 
     document.getElementById('dayOneTemp').innerHTML = weather.daily[1].temp.day;
     document.getElementById('dayTwoTemp').innerHTML = weather.daily[2].temp.day;
