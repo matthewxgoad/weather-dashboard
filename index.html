@@ -8,40 +8,42 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="bg-info">
     <!-- HEADER -->
     <div class="jumbotron jumbotron-fluid p-3 bg-dark">
         <div class="container">
             <h1 class="text-light text-center">Weather Dashboard</h1>
         </div>
       </div>
+    <!-- EVERYTHING BELOW THE HEADER -->
     <div class="container">
         <div class="row">
             <!-- SIDEBAR -->
-            <div class="sidebar col-3 bg-success p-3 rounded-top" id="sidebarEl">
+            <div class="sidebar col-3 bg-success p-4 rounded-top" id="sidebarEl">
                 <div class="input-group mb-3">
                     <input type="text" placeholder="Search by city" class="form-control search-input" id="search-input" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     <button class="btn btn-outline-secondary input-group-append bg-light" type="button" id="search-btn"> > </button>
-                  </div>
-                  <ul class="list-group" id="citiesListEl">
-                      <!-- Placeholder cities -->
-                    <!-- <li class="list-group-item">Saint Louis</li> -->
-                    <!-- <li class="list-group-item">Memphis</li> -->
-                    <!-- <li class="list-group-item">Los Angeles</li> -->
-                  </ul>
+                </div>
+                <div class="citiesList" id="citiesListEl">
+
+                </div>
             </div>
             <!-- MAIN CONTENT -->
             <div class="col" id="rightSideEl">
                 <!-- Current City / Current Weather Card -->
-                <div class="container mb-3 card-body bg-warning rounded-top" id="currentCityEl">
+                <div class="container mb-3 card-body bg-warning rounded-top p-5" id="currentCityEl">
                     <!-- Placeholder Current City Information -->
+                        <div class="row align-items-end">
                             <span id="current-icon-container"></span>
                             <h1 class="display-4" id="currentCityNameEl"></h1>
-                            <span id="currentDateEl"></span>
+                        </div>
+                        <div class="row flex-column">
+                            <h4 id="currentDateEl"></h4>
                             <h4>Temperature:</h4><span id="currentCityTempEl"></span>
                             <h4>Humidity:</h4><span id="currentCityHumEl"></span>
                             <h4>Windspeed:</h4><span id="currentCityWindEl"></span>
                             <h4>UV Index:</h4><span id="currentCityUVEl"></span>
+                        </div>
                 </div>
                 <!-- Container holding 5 day forecast heading -->
                 <div class="container bg-danger p-3 text-center rounded-top" id="fiveDayForecastHeader">
@@ -51,7 +53,7 @@
                 <div class="row five-day-cards mt-3" id="fiveDayCardsEl">
                     <div class="col">
                         <div class="card bg-primary p-3">
-                            <h5 class="text-light text-center">8/16/21</h5>
+                            <h5 class="text-light text-center" id="dayOneDate"></h5>
                             <img src="..." alt="Card Image Cap">
                             <h5 class="small text-light text-center">Temp. 84ºF</h5>
                             <h5 class="small text-light text-center">Hum. 50&percnt;</h5>

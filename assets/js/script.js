@@ -21,27 +21,25 @@ let fiveDayCardsEl = document.getElementById('fiveDayCardsEl');
 
 function processSearchBtn() {
     let city = userInput.value;
-    // validation
-    // localStorage.setItem(city); // store city to local
     findLatLon(city);
 }
-
-function findLatLon( city ) {
+function storeCityLocal(city) {
+    localStorage.setItem(city, city);
+}
+function findLatLon(city) {
     let key = '94a285a187fcf3f23d86661eee8a123d';
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key )
     .then(function(resp) { 
-        // processSearchResponse
         return resp.json();  // Convert data to json
     })
     .then(function(data) {
-        if (data.cod == 404) alert('Invalid city name.'); // TO DO: replace this with modal
+        if (data.cod == 404) alert('Invalid city name.'); 
         // retreive lat and long and return for another function to use
         let cityLat = data.coord.lat;
         let cityLong = data.coord.lon;
         getWeather(cityLat, cityLong);
     })
 }
-
 function getWeather( lat, lon ) {
     let key = '94a285a187fcf3f23d86661eee8a123d';
     fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial' + '&appid=' + key )
@@ -51,10 +49,12 @@ function getWeather( lat, lon ) {
     .then(function(data) {
         insertWeatherData(data);
     })
-    
+    storeCityLocal(userInput.value);
+    removeButtons();
+    getStoredCities();
 }
-
 function insertWeatherData( weather ) {
+    // CURRENT DAY WEATHER DATA
     currentCityNameEl.innerHTML = userInput.value;
     currentDateEl.innerHTML = convertUnixDate(weather.current.dt);
     currentCityTempEl.innerHTML = weather.current.temp;
@@ -62,13 +62,33 @@ function insertWeatherData( weather ) {
     currentCityWindEl.innerHTML = weather.current.wind_speed;
     currentCityUVEl.innerHTML = weather.current.uvi; // update text bg color based on value
     currentCityImgEl.innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.current.weather[0].icon + '@2x.png" alt="current weather">';
+    // FIVE DAY WEATHER DATA 
+    document.getElementById('dayOneDate').innerHTML = convertUnixDate(weather.daily[1].dt);
 }
 // Use to convert UNIX date format to Human Date Format
 function convertUnixDate (datecode) {
     return new Date(datecode * 1000).toLocaleDateString();
 }
-
-
+function getStoredCities() {
+    for( i = 0 ; i < localStorage.length && i < 8 ; i++) {
+        let newListItem = document.createElement('button');
+        newListItem.classList.add('btn');
+        newListItem.innerHTML = localStorage.key(i);
+        citiesListEl.appendChild(newListItem);
+        newListItem.addEventListener("click", function(){
+            processCityClick(newListItem.innerHTML)}
+        )
+    }
+}
+function processCityClick( city ) {
+    userInput.value = city;
+    findLatLon(city);
+}
+function removeButtons() {
+    while (citiesListEl.firstChild) {
+        citiesListEl.removeChild(citiesListEl.firstChild);
+    }
+}
 // EVENT LISTENERS //
 
 searchBtn.addEventListener("click", processSearchBtn);
@@ -76,6 +96,9 @@ userInput.addEventListener("keypress", function(e) {
     if(e.key === 'Enter') 
     processSearchBtn(); 
 });
+
+document.onload = getStoredCities();
+
 
 // When user clicks buttons
 // read the city name from input
