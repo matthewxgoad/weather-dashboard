@@ -2,7 +2,7 @@
 
 ![image of deployed application](assets/images/weather-dashboard-screenshot.png)
 
-[link to deployed application](http://matthewxgoad.github.com/weather-dashboard/)
+[link to deployed application](https://matthewxgoad.github.io/weather-dashboard/)
 
 ## Description
 
