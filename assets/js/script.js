@@ -62,8 +62,30 @@ function insertWeatherData( weather ) {
     currentCityWindEl.innerHTML = weather.current.wind_speed;
     currentCityUVEl.innerHTML = weather.current.uvi; // update text bg color based on value
     currentCityImgEl.innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.current.weather[0].icon + '@2x.png" alt="current weather">';
-    // FIVE DAY WEATHER DATA 
+    // FIVE DAY DATE DATA 
     document.getElementById('dayOneDate').innerHTML = convertUnixDate(weather.daily[1].dt);
+    document.getElementById('dayTwoDate').innerHTML = convertUnixDate(weather.daily[2].dt);
+    document.getElementById('dayThreeDate').innerHTML = convertUnixDate(weather.daily[3].dt);
+    document.getElementById('dayFourDate').innerHTML = convertUnixDate(weather.daily[4].dt);
+    document.getElementById('dayFiveDate').innerHTML = convertUnixDate(weather.daily[5].dt);
+    // FIVE DAY IMAGE DATA 
+    document.getElementById('dayOneImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[1].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayTwoImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[2].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayThreeImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[3].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayFourImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[4].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayFiveImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[5].icon + '.png" alt="weather forecast">';
+    // FIVE DAY TEMP DATA 
+    document.getElementById('dayOneTemp').innerHTML = weather.daily[1].temp;
+    document.getElementById('dayTwoTemp').innerHTML = weather.daily[2].temp;
+    document.getElementById('dayThreeTemp').innerHTML = weather.daily[3].temp;
+    document.getElementById('dayFourTemp').innerHTML = weather.daily[4].temp;
+    document.getElementById('dayFiveTemp').innerHTML = weather.daily[5].temp;
+    // FIVE DAY HUMIDITY DATA 
+    document.getElementById('dayOneHum').innerHTML = weather.daily[1].humidity;
+    document.getElementById('dayTwoHum').innerHTML = weather.daily[2].humidity;
+    document.getElementById('dayThreeHum').innerHTML = weather.daily[3].humidity;
+    document.getElementById('dayFourHum').innerHTML = weather.daily[4].humidity;
+    document.getElementById('dayFiveHum').innerHTML = weather.daily[5].humidity;
 }
 // Use to convert UNIX date format to Human Date Format
 function convertUnixDate (datecode) {
