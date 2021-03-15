@@ -1,3 +1,5 @@
+/* The following three custom classes are used to style the
+current UV element to indicate high, low, and okay */
 .uvHigh {
     color: white;
     background: red;
