@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-![image of deployed application](/assets/images/weather-dashboard-screenshot.png)
+![image of deployed application](assets/images/weather-dashboard-screenshot.png)
 
 [link to deployed application](http://matthewxgoad.github.com/weather-dashboard/)
 
