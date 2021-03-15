@@ -1,0 +1,15 @@
+.uvHigh {
+    color: white;
+    background: red;
+    border-radius: 5px;
+}
+.uvLow {
+    color: white;
+    background: green;
+    border-radius: 5px;
+}
+.uvOk {
+    color: white;
+    background: gold;
+    border-radius: 5px;
+}

@@ -27,7 +27,7 @@ function storeCityLocal(city) {
     localStorage.setItem(city, city);
 }
 function findLatLon(city) {
-    let key = '94a285a187fcf3f23d86661eee8a123d';
+    let key = '9425b5446dc273556c5b70a438f84526';
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key )
     .then(function(resp) { 
         return resp.json();  // Convert data to json
@@ -41,7 +41,7 @@ function findLatLon(city) {
     })
 }
 function getWeather( lat, lon ) {
-    let key = '94a285a187fcf3f23d86661eee8a123d';
+    let key = '9425b5446dc273556c5b70a438f84526';
     fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial' + '&appid=' + key )
     .then(function(resp) {
         return resp.json();
@@ -61,6 +61,13 @@ function insertWeatherData( weather ) {
     currentCityHumEl.innerHTML = weather.current.humidity;
     currentCityWindEl.innerHTML = weather.current.wind_speed;
     currentCityUVEl.innerHTML = weather.current.uvi; // update text bg color based on value
+    if (weather.current.uvi < 3) {
+        currentCityUVEl.classList.add('uvLow')
+    } else if (weather.current.uvi > 9) {
+        currentCityUVEl.classList.add('uvHigh')
+    } else {
+        currentCityUVEl.classList.add('uvOK')
+    }
     currentCityImgEl.innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.current.weather[0].icon + '@2x.png" alt="current weather">';
     // FIVE DAY DATE DATA 
     document.getElementById('dayOneDate').innerHTML = convertUnixDate(weather.daily[1].dt);
@@ -69,17 +76,17 @@ function insertWeatherData( weather ) {
     document.getElementById('dayFourDate').innerHTML = convertUnixDate(weather.daily[4].dt);
     document.getElementById('dayFiveDate').innerHTML = convertUnixDate(weather.daily[5].dt);
     // FIVE DAY IMAGE DATA 
-    document.getElementById('dayOneImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[1].icon + '.png" alt="weather forecast">';
-    document.getElementById('dayTwoImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[2].icon + '.png" alt="weather forecast">';
-    document.getElementById('dayThreeImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[3].icon + '.png" alt="weather forecast">';
-    document.getElementById('dayFourImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[4].icon + '.png" alt="weather forecast">';
-    document.getElementById('dayFiveImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily.weather[5].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayOneImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[1].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayTwoImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[2].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayThreeImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[3].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayFourImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[4].weather[0].icon + '.png" alt="weather forecast">';
+    document.getElementById('dayFiveImg').innerHTML = '<img src="http://openweathermap.org/img/wn/' + weather.daily[5].weather[0].icon + '.png" alt="weather forecast">';
     // FIVE DAY TEMP DATA 
-    document.getElementById('dayOneTemp').innerHTML = weather.daily[1].temp;
-    document.getElementById('dayTwoTemp').innerHTML = weather.daily[2].temp;
-    document.getElementById('dayThreeTemp').innerHTML = weather.daily[3].temp;
-    document.getElementById('dayFourTemp').innerHTML = weather.daily[4].temp;
-    document.getElementById('dayFiveTemp').innerHTML = weather.daily[5].temp;
+    document.getElementById('dayOneTemp').innerHTML = weather.daily[1].temp.day;
+    document.getElementById('dayTwoTemp').innerHTML = weather.daily[2].temp.day;
+    document.getElementById('dayThreeTemp').innerHTML = weather.daily[3].temp.day;
+    document.getElementById('dayFourTemp').innerHTML = weather.daily[4].temp.day;
+    document.getElementById('dayFiveTemp').innerHTML = weather.daily[5].temp.day;
     // FIVE DAY HUMIDITY DATA 
     document.getElementById('dayOneHum').innerHTML = weather.daily[1].humidity;
     document.getElementById('dayTwoHum').innerHTML = weather.daily[2].humidity;
@@ -94,7 +101,7 @@ function convertUnixDate (datecode) {
 function getStoredCities() {
     for( i = 0 ; i < localStorage.length && i < 8 ; i++) {
         let newListItem = document.createElement('button');
-        newListItem.classList.add('btn');
+        newListItem.classList.add('btn', 'btn-success', 'btn-lg', 'btn-block');
         newListItem.innerHTML = localStorage.key(i);
         citiesListEl.appendChild(newListItem);
         newListItem.addEventListener("click", function(){
